@@ -1,0 +1,477 @@
+// Name:                Mixins
+//
+// Description:         Less mixins for webapp
+//
+//
+// =============================================================================
+
+// =============================================================================
+// 布局相关
+// =============================================================================
+
+//浮动
+	//@direction left | right
+.float(@direction:left){
+	float:@direction;
+}
+// 清除浮动
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+//垂直居中
+.vertical-center{
+    /* Center vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+//设置盒模型
+	//@boxmodel content-box | border-box | inherit
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
+}
+
+//水平居中
+.center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//大小
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+
+//正方形
+.square(@size) {
+  .size(@size; @size);
+}
+
+//可调节大小
+.resizable(@direction) {
+  resize: @direction; // Options: horizontal, vertical, both
+  overflow: auto; // Safari fix
+}
+
+//可滚动的
+.scrollable() {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+//响应图片
+.img-responsive(@display: block) {
+  display: @display;
+  max-width: 100%;
+  height: auto;
+}
+
+// =============================================================================
+// 修饰相关
+// =============================================================================
+
+//文字颜色
+.text-color(@color) {
+  color: @color;
+  a&:hover,
+  a&:focus {
+    color: darken(@color, 10%);
+  }
+}
+
+//隐藏文字
+.text-hide() {
+  font: ~"0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+//文字超出隐藏
+.text-overflow(@display: block) {
+  display: @display;
+  word-wrap: normal; /* for IE */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+//多行文字超出隐藏
+.text-overflow-lines(@line-num:3, @line-height:1.5em){
+  overflow : hidden;
+  height:@line-height*@line-num;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:@line-num;
+  -webkit-box-orient: vertical;
+}
+
+//输入框的placeholder颜色
+.placeholder(@color: @input-color-placeholder) {
+  // Firefox
+  &::-moz-placeholder {
+    color: @color;
+    opacity: 1;
+  }
+
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+
+  // Safari and Chrome
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+
+//透明度
+.opacity(@opacity) {
+  opacity: @opacity;
+}
+
+//阴影
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1 & bb7.0
+  box-shadow: @shadow;
+}
+
+//圆角
+.border-radius(@radius) {
+  border-radius: @radius;
+}
+//单边圆角
+.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+     border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+  border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+     border-top-left-radius: @radius;
+}
+
+//渐变背景
+	//@start-color       起始颜色
+	//@end-color  		 结束颜色
+	//@start-percent     起始角度
+	//@end-percent       结束角度
+
+//水平方向直线渐变
+.gradient-horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+  background-image: -webkit-gradient(linear, @start-percent top, @end-percent top, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(left, color-stop(@start-color @start-percent), color-stop(@end-color @end-percent)); // Safari 5.1+, Chrome 10+
+  background-image: -moz-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+  background-image: linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+  background-repeat: repeat-x;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color), argb(@end-color))); // IE9 and down
+}
+//垂直方向直线渐变
+.gradient-vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+  background-image: -webkit-gradient(linear, left @start-percent, left @end-percent, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); // Safari 5.1+, Chrome 10+
+  background-image: -moz-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+  background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+  background-repeat: repeat-x;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color), argb(@end-color))); // IE9 and down
+}
+//定向直线渐变
+.gradient-directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+  background-repeat: repeat-x;
+  background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1+, Chrome 10+
+  background-image: -moz-linear-gradient(@deg, @start-color, @end-color); // FF 3.6+
+  background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10
+}
+//水平方向3色直线渐变
+.gradient-horizontal-3c(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+  background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+  background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+  background-image: -moz-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+  background-image: linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
+  background-repeat: no-repeat;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color), argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+}
+//垂直方向3色直线渐变
+.gradient-vertical-3c(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+  background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+  background-image: -moz-linear-gradient(top, @start-color, @mid-color @color-stop, @end-color);
+  background-image: linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+  background-repeat: no-repeat;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color), argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+}
+//放射状渐变
+.gradient-radial(@inner-color: #555; @outer-color: #333) {
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
+  background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
+  background-image: -moz-radial-gradient(circle, @inner-color, @outer-color);
+  background-image: radial-gradient(circle, @inner-color, @outer-color);
+  background-repeat: no-repeat;
+}
+//条纹渐变
+.gradient-striped(@color: rgba(255,255,255,.15); @angle: 45deg) {
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, @color), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, @color), color-stop(.75, @color), color-stop(.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+  background-image: linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+}
+
+//ie下复位透明度
+.reset-filter() {
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+
+// =============================================================================
+// 动画相关
+// =============================================================================
+
+//动画样式
+.animation(@name,@duration,@speed,@number,@direction, @mode){
+  	//@name 动画的名称
+  	//@duration 规定动画完成一个周期所花费的秒或毫秒
+  	//@speed 规定动画完成一个周期所花费的秒或毫秒 
+          //linear (动画从头到尾的速度是相同的)
+          //ease (默认。动画以低速开始，然后加快，在结束前变慢。)
+          //ease-in (动画以低速开始。)
+          //ease-out (动画以低速结束。)
+          //ease-out (动画以低速结束。)
+          //ease-in-out (动画以低速开始和结束。)
+          //cubic-bezier(n,n,n,n) (在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值。)
+  	//@delay 定义动画开始前等待的时间，以秒或毫秒计
+  	//@number 定义动画播放次数的数值 n 或 infinite（规定动画应该无限次播放）。 
+  	//@direction 规定动画是否在下一周期逆向地播放。normal（默认值。动画应该正常播放。） alternate（动画应该轮流反向播放。）； 
+  	//@State 规定动画是否在下一周期逆向地播放。 paused（规定动画已暂停。） running（规定动画正在播放。）； 
+  	//@mode 规定动画是否在下一周期逆向地播放。  
+          //none(不改变默认行为。)
+          //forwards(当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）)
+          //backwards(在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）)
+          //both(向前和向后填充模式都被应用)
+	animation: @name @duration @speed  @number @direction @mode;
+	-ms-animation:@name @duration @speed  @number @direction @mode;
+	-moz-animation:@name @duration @speed  @number @direction @mode;
+	-webkit-animation:@name @duration @speed  @number @direction @mode;
+	-o-animation:@name @duration @speed  @number @direction @mode;
+}
+
+//动画时间
+.animation_duration(@time){
+  animation-duration:@time;
+  -ms-animation-duration:@time;
+  -moz-animation-duration:@time;
+  -webkit-animation-duration:@time;
+  -o-animation-duration:@time;
+}
+
+//动画延时时间
+.animation_delay(@time){
+  animation-delay:@time;
+  -ms-animation-delay:@time;
+  -moz-animation-delay:@time;
+  -webkit-animation-delay:@time;
+  -o-animation-delay:@time;
+}
+
+//动画示例
+// .animation{
+//   from {
+//     width:100px;
+//     height:100px;
+//     background-color:blue;
+//   }
+//   to {
+//     width:300px;
+//     height:300px;
+//     background-color:red;
+//   }
+// }
+// @keyframes animation{ .animation}
+// @-moz-keyframes animation{ .animation}
+// @-webkit-keyframes animation { .animation}
+// @-o-keyframes animation { .animation}
+
+// .animation_demo{
+//   width:100px;
+//   height:100px;
+//   background-color:blue;
+//   .animation(animation,2s,ease-in-out,1,normal,forwards);
+// }
+
+//过度动画
+.transition(@property,@duration,@timing-function,@delay){
+  //@property 过渡效果的 CSS 属性的名称
+    //none  没有属性会获得过渡效果
+    //all  所有属性都将获得过渡效果。
+    //property  定义应用过渡效果的 CSS 属性名称列表，列表以逗号分隔。如：width,height
+  //@duration 完成过渡效果需要多少秒或毫秒
+    //time 如：'2s' '10000ms'
+  //@timing-function  速度效果的速度曲线
+    //linear (动画从头到尾的速度是相同的)
+    //ease (默认。动画以低速开始，然后加快，在结束前变慢。)
+    //ease-in (动画以低速开始。)
+    //ease-out (动画以低速结束。)
+    //ease-out (动画以低速结束。)
+    //ease-in-out (动画以低速开始和结束。)
+    //cubic-bezier(n,n,n,n) (在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值。)
+  //@delay  过渡效果何时开始
+    //time 如：'2s' '10000ms'
+  transition:@property @duration @timing-function @delay;
+  -ms-transition:@property @duration @timing-function @delay;
+  -moz-transition:@property @duration @timing-function @delay;
+  -webkit-transition:@property @duration @timing-function @delay;
+  -o-transition:@property @duration @timing-function @delay;
+}
+
+//过度动画示例
+// .transition_demo{
+//   width:100px;
+//   height:100px;
+//   background-color:blue;
+//   .transition(all,2s,ease,0s);
+//   &:hover{
+//     width:300px;
+//     height:300px;
+//     background-color:red;
+//   }
+// }
+
+//none  定义不进行转换。
+//matrix(n,n,n,n,n,n) 定义 2D 转换，使用六个值的矩阵。
+//matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) 定义 3D 转换，使用 16 个值的 4x4 矩阵。  
+//translate(x,y)  定义 2D 转换
+//translate3d(x,y,z)  定义 3D 转换。 
+//translateX(x) 定义转换，只是用 X 轴的值
+//translateY(y) 定义转换，只是用 Y 轴的值
+//translateZ(z) 定义 3D 转换，只是用 Z 轴的值。 
+//scale(x,y)  定义 2D 缩放转换
+//scale3d(x,y,z)  定义 3D 缩放转换。 
+//scaleX(x) 通过设置 X 轴的值来定义缩放转换。
+//scaleY(y) 通过设置 Y 轴的值来定义缩放转换。
+//scaleZ(z) 通过设置 Z 轴的值来定义 3D 缩放转换。  
+//rotate(angle) 定义 2D 旋转，在参数中规定角度。
+//rotate3d(x,y,z,angle) 定义 3D 旋转。 
+//rotateX(angle)  定义沿着 X 轴的 3D 旋转。
+//rotateY(angle)  定义沿着 Y 轴的 3D 旋转。
+//rotateZ(angle)  定义沿着 Z 轴的 3D 旋转。
+//skew(x-angle,y-angle) 定义沿着 X 和 Y 轴的 2D 倾斜转换。
+//skewX(angle)  定义沿着 X 轴的 2D 倾斜转换。
+//skewY(angle)  定义沿着 Y 轴的 2D 倾斜转换。  
+//perspective(n)  为 3D 转换元素定义透视视图。
+.transform(){
+	transform:rotate(7deg);
+	-ms-transform:rotate(7deg);   /* IE 9 */
+	-moz-transform:rotate(7deg);  /* Firefox */
+	-webkit-transform:rotate(7deg); /* Safari 和 Chrome */
+	-o-transform:rotate(7deg);  /* Opera */
+}
+
+//3d偏移
+.translate3d(@x,@y,@z){
+  transform:translate3d(@x,@y,@z);
+  -ms-transform:translate3d(@x,@y,@z);   /* IE 9 */
+  -moz-transform:translate3d(@x,@y,@z);  /* Firefox */
+  -webkit-transform:translate3d(@x,@y,@z); /* Safari 和 Chrome */
+  -o-transform:translate3d(@x,@y,@z);  /* Opera */
+}
+
+//3d缩放
+.scale3d(@x,@y,@z){
+  transform:scale3d(@x,@y,@z);
+  -ms-transform:scale3d(@x,@y,@z);   /* IE 9 */
+  -moz-transform:scale3d(@x,@y,@z);  /* Firefox */
+  -webkit-transform:scale3d(@x,@y,@z); /* Safari 和 Chrome */
+  -o-transform:scale3d(@x,@y,@z);  /* Opera */
+}
+
+//角度旋转
+.rotate(@angle){
+  transform:rotate(@angle);
+  -ms-transform:rotate(@angle);   /* IE 9 */
+  -moz-transform:rotate(@angle);  /* Firefox */
+  -webkit-transform:rotate(@angle); /* Safari 和 Chrome */
+  -o-transform:rotate(@angle);  /* Opera */
+}
+
+//3dX轴旋转
+.rotateX(@angle){
+  transform:rotateX(@angle);
+  -ms-transform:rotateX(@angle);   /* IE 9 */
+  -moz-transform:rotateX(@angle);  /* Firefox */
+  -webkit-transform:rotateX(@angle); /* Safari 和 Chrome */
+  -o-transform:rotateX(@angle);  /* Opera */
+}
+
+//3dY轴旋转
+.rotateY(@angle){
+  transform:rotateY(@angle);
+  -ms-transform:rotateY(@angle);   /* IE 9 */
+  -moz-transform:rotateY(@angle);  /* Firefox */
+  -webkit-transform:rotateY(@angle); /* Safari 和 Chrome */
+  -o-transform:rotateY(@angle);  /* Opera */
+}
+
+//3dZ轴旋转
+.rotateZ(@angle){
+  transform:rotateZ(@angle);
+  -ms-transform:rotateZ(@angle);   /* IE 9 */
+  -moz-transform:rotateZ(@angle);  /* Firefox */
+  -webkit-transform:rotateZ(@angle); /* Safari 和 Chrome */
+  -o-transform:rotateZ(@angle);  /* Opera */
+}
+
+//3dX轴倾斜
+.skewX(@angle){
+  transform:skewX(@angle);
+  -ms-transform:skewX(@angle);   /* IE 9 */
+  -moz-transform:skewX(@angle);  /* Firefox */
+  -webkit-transform:skewX(@angle); /* Safari 和 Chrome */
+  -o-transform:skewX(@angle);  /* Opera */
+}
+
+//3dY轴倾斜
+.skewY(@angle){
+  transform:skewY(@angle);
+  -ms-transform:skewY(@angle);   /* IE 9 */
+  -moz-transform:skewX(@angle);  /* Firefox */
+  -webkit-transform:skewY(@angle); /* Safari 和 Chrome */
+  -o-transform:skewY(@angle);  /* Opera */
+}
+
+//旋转中心
+.transform-origin(@x,@y){
+  -ms-transform-origin:@x @y;   /* IE 9 */
+  -moz-transform-origin:@x @y;  /* Firefox */
+  -webkit-transform-origin:@x @y; /* Safari 和 Chrome */
+  -o-transform-origin:@x @y;  /* Opera */
+}

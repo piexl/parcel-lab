@@ -1,0 +1,57 @@
+/*	
+Author:kermit
+Email:455196886@qq.com
+Company:http://dragontrail.com/
+Creattime:2017-1-08
+*/
+//清除样式
+*{margin:0;padding:0;list-style:none}body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}body,button,input,select,textarea{font:14px/1.5 tahoma,arial,sans-serif}h1,h2,h3,h4,h5,h6{font-size:100%}address,cite,dfn,em,var{font-style:normal}code,kbd,pre,samp{font-family:courier new,courier,monospace}small{font-size:12px}ul,ol{list-style:none}a{text-decoration:none}a:hover{text-decoration:none}legend{color:#000}fieldset,img{border:0}button,input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}
+
+//引入变量
+@import "variable.less";
+
+//引入混合函数
+@import "mixins.less";
+
+//引入基础样式
+@import "base.less";
+
+
+html,body{
+	.full-box;
+	min-height:100%;
+}
+html.un-scroll{
+	overflow:hidden;
+	body{overflow:hidden;}
+}
+
+.img-box{
+	font-size:0;
+	line-height:0;
+}
+
+#app{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+
+#mobile{
+	width:100%;
+	height:100%;
+	position:relative;
+}
+
+
+
+/* 中等屏幕（桌面显示器，小于1366px） */
+@media screen and (max-width:1366px){}
+/* 中等屏幕（桌面显示器, 小于1024px） */
+@media screen and (max-width:1024px){}
+/* 小屏幕（平板, 大于等于 992px) */
+@media screen and (max-width:992px){}
+/* 小屏幕（ipad竖版，小于 768px）*/
+@media screen and (max-width: 768px){}
+/* 小屏幕（手机，小于 640px）*/
+@media(max-width: 640px){}

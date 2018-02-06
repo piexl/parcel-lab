@@ -1,0 +1,201 @@
+//引入变量
+@import "variable.less";
+
+//引入混合函数
+@import "mixins.less";
+
+// =============================================================================
+// 布局相关
+// =============================================================================
+
+//显示
+.show { display: block !important;}
+//隐藏
+.hidden {display: none !important;}
+
+//左浮动
+.float-left {.float(left);}
+//右浮动
+.float-right {.float(right);}
+// 清除浮动
+.clear-float {.clearfix();}
+
+//设置border-box和模型
+.border-box{
+	.box-sizing(border-box);
+}
+
+//充满盒子
+.full-box{
+	.size(100%,100%);
+}
+
+//水平居中块
+.center-block{.center-block();}
+
+//响应图片
+.img-responsive{.img-responsive();}
+
+// =============================================================================
+// 文字相关
+// =============================================================================
+
+//文字对齐方式
+.text-left{text-align:left;}
+.text-right{text-align:right;}
+.text-center{text-align:center;}
+.text-justify{text-align:justify;}
+.text-top{vertical-align:top;}
+.text-middle{vertical-align:middle;}
+.text-bottom{vertical-align:bottom;}
+//文字大小
+.text-xxxl{font-size:@font-size-xxxl;}
+.text-xxl{font-size:@font-size-xxl;}
+.text-xl{font-size:@font-size-xl;}
+.text-lg{font-size:@font-size-lg;}
+.text-md{font-size:@font-size-md;}
+.text-sm{font-size:@font-size-sm;}
+//文字颜色
+.text-red {.text-color(@red);}
+.text-white {.text-color(@white);}
+.text-grey {.text-color(@grey);}
+.text-black {.text-color(@black);}
+.text-primary {.text-color(@brand-primary);}
+.text-success{.text-color(@brand-success);}
+.text-info{.text-color(@brand-info);}
+.text-warning {.text-color(@brand-warning);}
+.text-danger{.text-color(@brand-danger);}
+//隐藏文字
+.text-hide{.text-hide();}
+//文字超出隐藏
+.text-overflow{.text-overflow();}
+//多行文字超出隐藏
+.text-overflow-lines{.text-overflow-lines();}
+
+// =============================================================================
+// 背景相关
+// =============================================================================
+
+//背景颜色
+.bg-orange{background-color: @orange;}
+.bg-olive{background-color: @olive;}
+.bg-violet{background-color: @violet;}
+.bg-purple{background-color: @purple;}
+.bg-pink{background-color: @pink;}
+.bg-brown{background-color: @brown;}
+.bg-grey{background-color: lighten(@grey, 40%);}
+.bg-black{background-color: @black;}
+.bg-white{background-color: @white;}
+
+.bg-primary{background-color: @brand-primary;}
+.bg-success{background-color: @brand-success;}
+.bg-info{background-color: @brand-info;}
+.bg-warning{background-color: @brand-warning;}
+.bg-danger{background-color: @brand-danger;}
+
+//渐变背景
+//水平方向渐变
+.gradient-horizontal{.gradient-horizontal();}
+//垂直方向渐变    
+.gradient-vertical{.gradient-vertical();}
+//定向方向渐变
+.gradient-directional{.gradient-directional();}
+//水平方向3色渐变
+.gradient-horizontal-3c{.gradient-horizontal-3c();}
+//垂直方向3色渐变
+.gradient-vertical-3c{.gradient-vertical-3c();}
+//放射渐变
+.gradient-radial{.gradient-radial();}
+//条纹渐变
+.gradient-striped{.gradient-striped(@color: #000; @angle: 45deg);}
+
+
+// =============================================================================
+// 页面元素相关
+// =============================================================================
+
+*,
+*:before,
+*:after {
+	.border-box;
+}
+
+html,body{
+	background-color:@body-bg;
+	line-height:@line-height-base;
+	font-size:@font-size-base;
+	color:@text-color;
+	.full-box;
+}
+
+// 标题
+h1{font-size:@font-size-h1;}
+h2{font-size:@font-size-h2;}
+h3{font-size:@font-size-h3;}
+h4{font-size:@font-size-h4;}
+h5{font-size:@font-size-h5;}
+h6{font-size:@font-size-h6;}
+
+//图片
+img{
+	max-width:100%;
+}
+
+// 链接
+a {
+	color: #333;
+	text-decoration: none;
+  &[href]{
+    cursor:pointer;
+  }
+	&:hover {
+  	color:#000;
+  	text-decoration: underline;
+	}
+}
+
+button{
+  outline:none;
+  cursor:pointer;
+}
+
+// 列表
+ul{
+  padding-left:0;
+  li{
+    list-style:none;
+  }
+}
+
+
+// =============================================================================
+// 动画相关
+// =============================================================================
+
+//旋转动画示例
+.animation-rotate{
+  from {
+    .rotate(0deg);
+  }
+  to {
+    .rotate(360deg);
+  }
+}
+@keyframes animation-rotate{ .animation-rotate}
+@-moz-keyframes animation-rotate{ .animation-rotate}
+@-webkit-keyframes animation-rotate { .animation-rotate}
+@-o-keyframes animation-rotate { .animation-rotate}
+
+//反向旋转动画
+.animation-rotate-un{
+  from {
+    .rotate(0deg);
+  }
+  to {
+    .rotate(-360deg);
+  }
+}
+@keyframes animation-rotate-un{ .animation-rotate-un}
+@-moz-keyframes animation-rotate-un{ .animation-rotate-un}
+@-webkit-keyframes animation-rotate-un { .animation-rotate-un}
+@-o-keyframes animation-rotate-un { .animation-rotate-un}

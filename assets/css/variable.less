@@ -1,0 +1,88 @@
+/*
+===== 变量的定义 =====
+*/
+
+//设计稿750px分成100份，1a=7.5px, 1rem=75px, 设计稿中的1px = 1/75rem;
+@rpx:1/75rem;
+
+/*===== 媒体查询节点 ======*/
+@screen-sm:  768px;
+@screen-md:  992px;
+@screen-lg:  1024px;
+@screen-xl:  1280px;
+@screen-xxl: 1366px;
+
+/*===== 颜色的定义 =====*/
+@red            : #d41d19;
+@orange         : #F2711C;
+@yellow         : #FBBD08;
+@olive          : #B5CC18;
+@green          : #21BA45;
+@teal           : #00B5AD;
+@blue           : #2185D0;
+@violet         : #6435C9;
+@purple         : #A333C8;
+@pink           : #E03997;
+@brown          : #A5673F;
+@grey           : #767676;
+@black          : #1B1C1D;
+@white          : #FFFFFF;
+
+//灰色
+@gray-darker:     lighten(@black, 13.5%); // #222
+@gray-dark:       lighten(@black, 20%);   // #333
+@gray:            lighten(@black, 33.5%); // #555
+@gray-light:      lighten(@black, 60%);   // #999
+@gray-lighter:    lighten(@black, 93.5%); // #eee
+
+
+
+/*===== 品牌颜色设置 =====*/
+@brand-primary  : @blue;
+@brand-success  : @green;
+@brand-info     : @teal;
+@brand-warning  : @yellow;
+@brand-danger   : @red;
+
+/*===== 网站外观的关键颜色设置 =====*/
+@body-bg:    #fff;
+@text-color: lighten(@black, 10%);
+
+/*===== 连接颜色设置 =====*/
+@link-color:       @brand-primary;
+@link-hover-color: darken(@link-color, 10%);
+@link-hover-decoration: underline;
+
+/*===== 文字大小 =====*/
+@font-size-base:          14px;
+@font-size-xxxl:          ceil((@font-size-base * 3)); //42px
+@font-size-xxl:           ceil((@font-size-base * 2.28)); //32px
+@font-size-xl:            ceil((@font-size-base * 1.71)); //24px
+@font-size-lg:            ceil((@font-size-base * 1.25)); //18px
+@font-size-md:            ceil((@font-size-base * 1.14)); //16px
+@font-size-sm:            ceil((@font-size-base * 0.85)); //12px
+
+//标题大小
+@font-size-h1:            floor((@font-size-base * 1.5));
+@font-size-h2:            floor((@font-size-base * 1.25));
+@font-size-h3:            floor((@font-size-base * 1.1));
+@font-size-h4:            @font-size-base;
+@font-size-h5:            @font-size-base;
+@font-size-h6:            @font-size-base;
+
+// 文字字体
+@font-family-base:        'Microsoft YaHei';
+@font-family-monospace: Monaco, Menlo, Consolas, "Courier New", "FontAwesome", monospace;
+
+// 文字行高
+@line-height-base:        1.5;
+
+/*===== 代码变量 =====*/
+@code-color:                  #c7254e;	
+@code-bg:                     #f8f8f8;
+@code-font-size:              1.3rem;
+
+@pre-bg:                      @code-bg;
+@pre-color:                   @gray;
+@pre-border:                  1px solid #dedede;
+@pre-scrollable-max-height:   24rem;

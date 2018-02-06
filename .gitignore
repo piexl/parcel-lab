@@ -1,0 +1,9 @@
+
+#依赖包
+node_modules
+
+#打包文件
+dist
+
+#临时文件
+.cache

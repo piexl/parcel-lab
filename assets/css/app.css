@@ -1,0 +1,704 @@
+/*	
+Author:kermit
+Email:455196886@qq.com
+Company:http://dragontrail.com/
+Creattime:2017-1-08
+*/
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font: 14px/1.5 tahoma, arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: courier new, courier, monospace;
+}
+small {
+  font-size: 12px;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+legend {
+  color: #000;
+}
+fieldset,
+img {
+  border: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*
+===== 变量的定义 =====
+*/
+/*===== 媒体查询节点 ======*/
+/*===== 颜色的定义 =====*/
+/*===== 品牌颜色设置 =====*/
+/*===== 网站外观的关键颜色设置 =====*/
+/*===== 连接颜色设置 =====*/
+/*===== 文字大小 =====*/
+/*===== 代码变量 =====*/
+.vertical-center {
+  /* Center vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.clear-float:before,
+.clear-float:after {
+  content: " ";
+  display: table;
+}
+.clear-float:after {
+  clear: both;
+}
+.border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.full-box {
+  width: 100%;
+  height: 100%;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-top {
+  vertical-align: top;
+}
+.text-middle {
+  vertical-align: middle;
+}
+.text-bottom {
+  vertical-align: bottom;
+}
+.text-xxxl {
+  font-size: 42px;
+}
+.text-xxl {
+  font-size: 32px;
+}
+.text-xl {
+  font-size: 24px;
+}
+.text-lg {
+  font-size: 18px;
+}
+.text-md {
+  font-size: 16px;
+}
+.text-sm {
+  font-size: 12px;
+}
+.text-red {
+  color: #d41d19;
+}
+a.text-red:hover,
+a.text-red:focus {
+  color: #a61714;
+}
+.text-white {
+  color: #FFFFFF;
+}
+a.text-white:hover,
+a.text-white:focus {
+  color: #e6e6e6;
+}
+.text-grey {
+  color: #767676;
+}
+a.text-grey:hover,
+a.text-grey:focus {
+  color: #5d5d5d;
+}
+.text-black {
+  color: #1B1C1D;
+}
+a.text-black:hover,
+a.text-black:focus {
+  color: #020203;
+}
+.text-primary {
+  color: #2185D0;
+}
+a.text-primary:hover,
+a.text-primary:focus {
+  color: #1a69a4;
+}
+.text-success {
+  color: #21BA45;
+}
+a.text-success:hover,
+a.text-success:focus {
+  color: #198f35;
+}
+.text-info {
+  color: #00B5AD;
+}
+a.text-info:hover,
+a.text-info:focus {
+  color: #00827c;
+}
+.text-warning {
+  color: #FBBD08;
+}
+a.text-warning:hover,
+a.text-warning:focus {
+  color: #cd9903;
+}
+.text-danger {
+  color: #d41d19;
+}
+a.text-danger:hover,
+a.text-danger:focus {
+  color: #a61714;
+}
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.text-overflow {
+  display: block;
+  word-wrap: normal;
+  /* for IE */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.text-overflow-lines {
+  overflow: hidden;
+  height: 4.5em;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.bg-orange {
+  background-color: #F2711C;
+}
+.bg-olive {
+  background-color: #B5CC18;
+}
+.bg-violet {
+  background-color: #6435C9;
+}
+.bg-purple {
+  background-color: #A333C8;
+}
+.bg-pink {
+  background-color: #E03997;
+}
+.bg-brown {
+  background-color: #A5673F;
+}
+.bg-grey {
+  background-color: #dcdcdc;
+}
+.bg-black {
+  background-color: #1B1C1D;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-primary {
+  background-color: #2185D0;
+}
+.bg-success {
+  background-color: #21BA45;
+}
+.bg-info {
+  background-color: #00B5AD;
+}
+.bg-warning {
+  background-color: #FBBD08;
+}
+.bg-danger {
+  background-color: #d41d19;
+}
+.gradient-horizontal {
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(#555), to(#333));
+  background-image: -webkit-linear-gradient(left, color-stop(#555 0%), color-stop(#333 100%));
+  background-image: -moz-linear-gradient(left, #555 0%, #333 100%);
+  background-image: linear-gradient(to right, #555 0%, #333 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff555555', endColorstr='#ff333333', GradientType=1);
+}
+.gradient-vertical {
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#555), to(#333));
+  background-image: -webkit-linear-gradient(top, #555 0%, #333 100%);
+  background-image: -moz-linear-gradient(top, #555 0%, #333 100%);
+  background-image: linear-gradient(to bottom, #555 0%, #333 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff555555', endColorstr='#ff333333', GradientType=0);
+}
+.gradient-directional {
+  background-repeat: repeat-x;
+  background-image: -webkit-linear-gradient(45deg, #555, #333);
+  background-image: -moz-linear-gradient(45deg, #555, #333);
+  background-image: linear-gradient(45deg, #555, #333);
+}
+.gradient-horizontal-3c {
+  background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(#00b3ee), color-stop(50%, #7a43b6), to(#c3325f));
+  background-image: -webkit-linear-gradient(left, #00b3ee, #7a43b6 50%, #c3325f);
+  background-image: -moz-linear-gradient(left, #00b3ee, #7a43b6 50%, #c3325f);
+  background-image: linear-gradient(to right, #00b3ee, #7a43b6 50%, #c3325f);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00b3ee', endColorstr='#ffc3325f', GradientType=1);
+}
+.gradient-vertical-3c {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00b3ee), color-stop(50%, #7a43b6), to(#c3325f));
+  background-image: -webkit-linear-gradient(#00b3ee, #7a43b6 50%, #c3325f);
+  background-image: -moz-linear-gradient(top, #00b3ee, #7a43b6 50%, #c3325f);
+  background-image: linear-gradient(#00b3ee, #7a43b6 50%, #c3325f);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00b3ee', endColorstr='#ffc3325f', GradientType=0);
+}
+.gradient-radial {
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#555), to(#333));
+  background-image: -webkit-radial-gradient(circle, #555, #333);
+  background-image: -moz-radial-gradient(circle, #555, #333);
+  background-image: radial-gradient(circle, #555, #333);
+  background-repeat: no-repeat;
+}
+.gradient-striped {
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, #000), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, #000), color-stop(0.75, #000), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(45deg, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(45deg, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, transparent);
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 14px;
+  color: #343637;
+  width: 100%;
+  height: 100%;
+}
+h1 {
+  font-size: 21px;
+}
+h2 {
+  font-size: 17px;
+}
+h3 {
+  font-size: 15px;
+}
+h4 {
+  font-size: 14px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 14px;
+}
+img {
+  max-width: 100%;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+a[href] {
+  cursor: pointer;
+}
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+button {
+  outline: none;
+  cursor: pointer;
+}
+ul {
+  padding-left: 0;
+}
+ul li {
+  list-style: none;
+}
+.animation-rotate from {
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  /* IE 9 */
+  -moz-transform: rotate(0deg);
+  /* Firefox */
+  -webkit-transform: rotate(0deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(0deg);
+  /* Opera */
+}
+.animation-rotate to {
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  /* IE 9 */
+  -moz-transform: rotate(360deg);
+  /* Firefox */
+  -webkit-transform: rotate(360deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(360deg);
+  /* Opera */
+}
+@keyframes animation-rotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+@-moz-keyframes animation-rotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+@-webkit-keyframes animation-rotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+@-o-keyframes animation-rotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+.animation-rotate-un from {
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  /* IE 9 */
+  -moz-transform: rotate(0deg);
+  /* Firefox */
+  -webkit-transform: rotate(0deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(0deg);
+  /* Opera */
+}
+.animation-rotate-un to {
+  transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  /* IE 9 */
+  -moz-transform: rotate(-360deg);
+  /* Firefox */
+  -webkit-transform: rotate(-360deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(-360deg);
+  /* Opera */
+}
+@keyframes animation-rotate-un {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    /* IE 9 */
+    -moz-transform: rotate(-360deg);
+    /* Firefox */
+    -webkit-transform: rotate(-360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(-360deg);
+    /* Opera */
+  }
+}
+@-moz-keyframes animation-rotate-un {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    /* IE 9 */
+    -moz-transform: rotate(-360deg);
+    /* Firefox */
+    -webkit-transform: rotate(-360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(-360deg);
+    /* Opera */
+  }
+}
+@-webkit-keyframes animation-rotate-un {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    /* IE 9 */
+    -moz-transform: rotate(-360deg);
+    /* Firefox */
+    -webkit-transform: rotate(-360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(-360deg);
+    /* Opera */
+  }
+}
+@-o-keyframes animation-rotate-un {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    /* IE 9 */
+    -moz-transform: rotate(-360deg);
+    /* Firefox */
+    -webkit-transform: rotate(-360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(-360deg);
+    /* Opera */
+  }
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+html.un-scroll {
+  overflow: hidden;
+}
+html.un-scroll body {
+  overflow: hidden;
+}
+.img-box {
+  font-size: 0;
+  line-height: 0;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#mobile {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* 中等屏幕（桌面显示器，小于1366px） */
+/* 中等屏幕（桌面显示器, 小于1024px） */
+/* 小屏幕（平板, 大于等于 992px) */
+/* 小屏幕（ipad竖版，小于 768px）*/
+/* 小屏幕（手机，小于 640px）*/
